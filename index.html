@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#2e7d32">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="icons/icon-192.png">
+    <link rel="icon" href="assets/icons/icon-192.png">
 </head>
 <body>
     <header>
@@ -22,6 +22,8 @@
         <button class="tab" data-tab="daily">Daily</button>
         <button class="tab" data-tab="weekly">Weekly</button>
         <button class="tab" data-tab="monthly">Monthly</button>
+        <button class="tab" data-tab="reading">Reading</button>
+        <button class="tab" data-tab="people">People</button>
     </nav>
 
     <main>
@@ -130,6 +132,47 @@
                             <textarea class="prompt-response"></textarea>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reading" class="tab-content">
+            <h2>📚 Reading Vault</h2>
+            <div class="reading-grid">
+                <div class="add-book">
+                    <h3>Add New Book</h3>
+                    <input type="text" id="bookTitle" placeholder="Book Title">
+                    <select id="bookTheme">
+                        <option value="spirituality">Spirituality</option>
+                        <option value="leadership">Leadership</option>
+                        <option value="systems">Systems</option>
+                        <option value="biography">Biography</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <textarea id="bookTakeaways" placeholder="Key Takeaways"></textarea>
+                    <textarea id="bookInsights" placeholder="Actionable Insights"></textarea>
+                    <button id="addBookBtn" class="save-btn">Add Book</button>
+                </div>
+                <div class="book-list" id="bookList">
+                    <!-- Books will appear here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="people" class="tab-content">
+            <h2>🤝 People & Partnerships</h2>
+            <div class="people-grid">
+                <div class="add-person">
+                    <h3>Add New Contact</h3>
+                    <input type="text" id="personName" placeholder="Name">
+                    <input type="text" id="personRole" placeholder="Role/Connection">
+                    <input type="date" id="lastContact">
+                    <textarea id="personNotes" placeholder="Notes/Opportunities"></textarea>
+                    <input type="date" id="followUpDate">
+                    <button id="addPersonBtn" class="save-btn">Add Contact</button>
+                </div>
+                <div class="people-list" id="peopleList">
+                    <!-- Contacts will appear here -->
                 </div>
             </div>
         </section>

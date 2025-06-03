@@ -49,6 +49,7 @@ header h1 {
     display: flex;
     background-color: white;
     border-bottom: 1px solid var(--light-gray);
+    overflow-x: auto;
 }
 
 .tab {
@@ -59,6 +60,8 @@ header h1 {
     cursor: pointer;
     font-weight: 500;
     border-bottom: 3px solid transparent;
+    min-width: 100px;
+    white-space: nowrap;
 }
 
 .tab.active {
@@ -84,13 +87,19 @@ header h1 {
     margin-bottom: 1.5rem;
 }
 
-.print-btn {
+.print-btn, .save-btn {
     background: var(--primary);
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.print-btn:hover, .save-btn:hover {
+    background: var(--primary-dark);
 }
 
 .grid {
@@ -124,8 +133,6 @@ header h1 {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--light-gray);
-    color: var(--dark);
     padding: 0.2rem 0.5rem;
     border-radius: 10px;
     font-size: 0.8rem;
@@ -137,7 +144,8 @@ header h1 {
     gap: 1.5rem;
 }
 
-.focus-areas, .top-tasks, .spiritual, .win {
+.focus-areas, .top-tasks, .spiritual, .win,
+.add-book, .add-person, .book-card, .person-card {
     background: white;
     padding: 1.5rem;
     border-radius: 8px;
@@ -162,13 +170,21 @@ input[type="checkbox"] {
     height: 1.2rem;
 }
 
-input[type="text"], textarea {
+input[type="text"], textarea, select {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid var(--light-gray);
     border-radius: 4px;
     font-family: inherit;
     margin-top: 0.5rem;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    margin: 0.5rem 0;
 }
 
 textarea {
@@ -226,6 +242,44 @@ ol li {
     font-weight: 500;
 }
 
+.reading-grid, .people-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.book-list, .people-list {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+}
+
+.book-card, .person-card {
+    border-left: 4px solid var(--primary);
+}
+
+.book-theme {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background: var(--light);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.person-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.person-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -274,19 +328,12 @@ ol li {
 }
 
 @media (max-width: 768px) {
-    .daily-grid, .monthly-grid {
+    .daily-grid, .monthly-grid, 
+    .reading-grid, .people-grid {
         grid-template-columns: 1fr;
     }
     
     .grid {
         grid-template-columns: 1fr;
-    }
-    
-    .tabs {
-        overflow-x: auto;
-    }
-    
-    .tab {
-        min-width: 100px;
     }
 }
